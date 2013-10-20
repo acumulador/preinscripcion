@@ -1,4 +1,6 @@
+
 $(document).on("ready",ini);
+boolean sw = false;
 
 function ini()
 {
@@ -8,44 +10,41 @@ function ini()
 	$("#btnSalir").on("click",saleReg);
 }
 
-function regCursos()
+function validaFormulario()
 {
-	// Valido los campos
 	if($("#txtDocumento").val().length < 5)
 	{
-		alert("Por favor ingrese el documento valido.");
+		alert("Por favor ingrese el documento valido. Verifique solo numeros, espacios y puntos.");
 		$("#txtDocumento").focus();
-		return false;
+		sw = false;
 	}
-	else if($("#txtNombre").val().length < 15 )
+	else if($("#txtNombre").val().length < 8 )
 	{
-		alert("Por favor ingrese nombre valido.");
+		alert("Por favor ingrese nombre valido. Verifique minimo 8 caracteres y solo letras.");
 		$("#txtNombre").focus();
-		return false;
+		sw = false;
 	}
-	else if($("#txtCorreo").val().length < 15 )
+	else if($("#txtCorreo").val().length < 8 )
 	{
-		alert("Por favor ingrese un correo valido.");
+		alert("Por favor ingrese un correo valido. Verifique el formato correcto de correo electronico y minimo 8 caracteres.");
 		$("#txtCorreo").focus();
-		return false;
+		sw = false;
 	}
 	else if($("#txtGrupo").val().length < 5)
 	{
-		alert("Por favor ingrese un grupo valido.");
+		alert("Por favor ingrese un grupo de trabajo valido. Verifique Sistemas, cartografia, avaluos, geodata");
 		$("#txtGrupo").focus();
 		return false;
 	}
-	else if($("#cbConvenio").val() == "ninguno")
-	{
-		alert("Por favor seleccione un convenio.");
-		return false;
-	}
-	else if($("#ckSAP").is(":checked") == false && $("#ckExcel").is(":checked") == false )
-	{
-		alert("Por favor seleccione un curso.");
-		return false;
-	}
-	else
+
+}
+
+function regCursos()
+{
+	// Valido los campos
+	validaFormulario();
+	
+	if(sw)
 	{
 		//envio el formulario con AJAX
 		$.ajax({
