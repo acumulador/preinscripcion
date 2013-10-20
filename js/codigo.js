@@ -1,6 +1,8 @@
 
 $(document).on("ready",ini);
 var sw = false;
+var tipoCons;
+var param;
 
 function ini()
 {
@@ -15,9 +17,28 @@ function ini()
 	$('#txtGrupo').validCampoFranz(' abcdefghijklmnñopqrstuvwxyzáéiou');
     $('#txtDocumento').validCampoFranz('0123456789');
 
+    //cupos y disponibilidad
+    $("#cbConvenio").on("change", consTotConvenio);
+    $("#cbHorario").on("change", consTotHorario);
+
     //mayusculas
     $("#txtNombre").on("keyup",NomAMayuscula); 
     $("#txtGrupo").on("keyup",GruAMayuscula);
+}
+
+function consTotConvenio()
+{
+	// alert("Si se detecto canbio!!");
+	myTipoCons = "1";
+	param = $('#cbConvenio').val();
+    $('#totConvenio').load('php/consulta_totales_disponibles.php?myTipoCons='+tipoCons+'&myParametro='+param);
+}
+
+function consTotHorario()
+{
+	myTipoCons = "2";
+	myParametro = $('#cbHorario').val();
+    $('#totHorario').load('php/consulta_totales_disponibles.php.php?myTipoCons=$myTipoCons&myParametro=$myParametro');
 }
 
 function NomAMayuscula()
