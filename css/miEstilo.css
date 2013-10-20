@@ -122,6 +122,11 @@ select
 	/*font-family: 'Josefin Sans', sans-serif;*/
 }
 
+#selHorario
+{
+	display: none;
+}
+
 /*clases*/
 
 .fondo-pop

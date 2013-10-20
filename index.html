@@ -10,6 +10,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Josefin+Sans:100' rel='stylesheet' type='text/css'>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="js/modernizr.js"></script>
+	<script src="js/validCampoFranz.js"></script>
 	<script src="js/codigo.js"></script>
 </head>
 <body>
@@ -41,14 +42,15 @@
 				<span>Excel</span>
 				<input name="ckExcel" type="checkbox" value="2" id="ckExcel"/>
 			</div>
-			<label>Horario <div id="totHorario">(1 cupo disponible Viern 4-7)</div> </label>
-			<select id="cbHorario" name="cbHorario">
-				<option value="ninguno">Seleccione Opción</option>
-				<option value="vie4-7">Viernes 4-7</option>
-				<option value="sab8-11">Sabado 8-11</option>
-				<option value="sab11-2">Sabado 11-2</option>
-			</select>
-			
+			<div id="selHorario">
+				<label>Horario <div id="totHorario">(1 cupo disponible Viern 4-7)</div> </label>
+				<select id="cbHorario" name="cbHorario">
+					<option value="ninguno">Seleccione Opción</option>
+					<option value="vie4-7">Viernes 4-7</option>
+					<option value="sab8-11">Sabado 8-11</option>
+					<option value="sab11-2">Sabado 11-2</option>
+				</select>
+			</div>
 			<br><br>
 			<div id="boton"><input type="button" value="Registrar" id="btnRegistrar" ></div>
 		</form>

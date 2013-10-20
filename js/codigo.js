@@ -1,6 +1,6 @@
 
 $(document).on("ready",ini);
-boolean sw = false;
+var sw = false;
 
 function ini()
 {
@@ -8,6 +8,46 @@ function ini()
 	$(".fondo-pop").on("click", salePop);
 	$(".fondo-pop, .pop").fadeIn("slow");
 	$("#btnSalir").on("click",saleReg);
+	$("#ckExcel").on("click",clickCheckExcel);
+	$("#ckSAP").on("click",clickCheckSAP);
+	//Validaciones
+	$('#txtNombre').validCampoFranz(' abcdefghijklmnñopqrstuvwxyzáéiou');
+	$('#txtGrupo').validCampoFranz(' abcdefghijklmnñopqrstuvwxyzáéiou');
+    $('#txtDocumento').validCampoFranz('0123456789');
+
+    //mayusculas
+    $("#txtNombre").on("keyup",NomAMayuscula); 
+    $("#txtGrupo").on("keyup",GruAMayuscula);
+}
+
+function NomAMayuscula()
+{
+	$(this).val($(this).val().toUpperCase());
+}
+
+function GruAMayuscula()
+{
+	$(this).val($(this).val().toUpperCase());
+}
+
+function clickCheckExcel()
+{
+	if($("#ckExcel").is(":checked") == true && $("#ckSAP").is(":checked") == false)
+	{
+		$("#selHorario").hide();
+	}
+}
+
+function clickCheckSAP()
+{
+	if($("#ckSAP").is(":checked") == true)
+	{
+		$("#selHorario").show();
+	}
+	else
+	{
+		$("#selHorario").hide();
+	}
 }
 
 function validaFormulario()
@@ -30,13 +70,31 @@ function validaFormulario()
 		$("#txtCorreo").focus();
 		sw = false;
 	}
-	else if($("#txtGrupo").val().length < 5)
+	else if($("#txtGrupo").val().length < 4)
 	{
 		alert("Por favor ingrese un grupo de trabajo valido. Verifique Sistemas, cartografia, avaluos, geodata");
 		$("#txtGrupo").focus();
-		return false;
+		sw = false;
 	}
-
+	else if($("#cbConvenio").val() == "ninguno")
+	{
+		alert("Por favor seleccione un convenio. Conservación o Depuración");
+		sw = false;
+	}
+	else if($("#ckSAP").is(":checked") == false && $("#ckExcel").is(":checked") == false )
+	{
+		alert("Por favor seleccione un curso. Excel o SAP");
+		sw = false;
+	}
+	else if($("#cbHorario").val() == "ninguno" && $("#ckSAP").is(":checked") == true)
+	{
+		alert("Por favor seleccione un Horario. Viernes 4-7, Sabado 8-11 o Sabado 11-2");
+		sw = false;
+	}
+	else
+	{
+		sw = true;
+	}
 }
 
 function regCursos()
@@ -85,6 +143,9 @@ function prLimpiarForm()
 	$("#txtCorreo").val("");
 	$("#txtGrupo").val("");
 	$("#cbConvenio").val("ninguno");
+	$("#cbHorario").val("ninguno");
 	$("#ckSAP").removeAttr("checked");
 	$("#ckExcel").removeAttr("checked");
+
+	$("#selHorario").hide();
 }

@@ -7,6 +7,14 @@ $nom = utf8_encode ($_POST['txtNombre']);
 $mail = $_POST['txtCorreo'];
 $grup = $_POST['txtGrupo'];
 $convenio = $_POST['cbConvenio'];
+if($_POST['cbHorario'] == "ninguno")
+{
+	$horario = "NA";
+}
+else
+{
+	$horario = $_POST['cbHorario'];
+}
 $fecha_i = date("Y-m-d H:i:s");
 
 if(isset($_POST['ckSAP']))
@@ -36,10 +44,11 @@ $query = "INSERT INTO  `edusoftg_preins_cat`.`datos_preins` (
 	`convenio` ,
 	`fecha_insc` ,
 	`SAP` ,
-	`Excel`
+	`Excel`,
+	`horario`
 	)
 VALUES 
-	(NULL ,  '$doc',  '$nom',  '$mail',  '$grup',  '$convenio',  '$fecha_i',  '$sap',  '$excel'
+	(NULL ,  '$doc',  '$nom',  '$mail',  '$grup',  '$convenio',  '$fecha_i',  '$sap',  '$excel', '$horario'
 );";
 
 if(mysql_query($query))
