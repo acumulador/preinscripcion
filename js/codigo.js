@@ -3,6 +3,7 @@ $(document).on("ready",ini);
 var sw = false;
 var tipoCons;
 var param;
+var totConv = "";
 
 function ini()
 {
@@ -29,16 +30,16 @@ function ini()
 function consTotConvenio()
 {
 	// alert("Si se detecto canbio!!");
-	myTipoCons = "1";
+	tipoCons = "1";
 	param = $('#cbConvenio').val();
     $('#totConvenio').load('php/consulta_totales_disponibles.php?myTipoCons='+tipoCons+'&myParametro='+param);
 }
 
 function consTotHorario()
 {
-	myTipoCons = "2";
-	myParametro = $('#cbHorario').val();
-    $('#totHorario').load('php/consulta_totales_disponibles.php.php?myTipoCons=$myTipoCons&myParametro=$myParametro');
+	tipoCons = "2";
+	param = $('#cbHorario').val();
+    $('#totHorario').load('php/consulta_totales_disponibles.php?myTipoCons='+tipoCons+'&myParametro='+param);
 }
 
 function NomAMayuscula()
@@ -169,4 +170,6 @@ function prLimpiarForm()
 	$("#ckExcel").removeAttr("checked");
 
 	$("#selHorario").hide();
+	$("#totConvenio").val("");
+	$("#totHorario").val("");
 }
