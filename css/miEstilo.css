@@ -122,6 +122,13 @@ select
 	/*font-family: 'Josefin Sans', sans-serif;*/
 }
 
+#resHorario, #resGrupo
+{
+	margin-top: 20px;
+	font-size: 2em;
+	color: green;
+}
+
 #selHorario
 {
 	display: none;
