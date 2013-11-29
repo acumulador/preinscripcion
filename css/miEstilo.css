@@ -28,7 +28,6 @@ h1, h2
 
 label
 {
-	display: block;
 	margin-top: 10px;
 	font-size: 1.5em;
 }
@@ -66,6 +65,8 @@ p
 select
 {
 	height: 45px;
+	width: 80px;
+	margin-left: 20px;
 }
 
 /*id's*/
@@ -98,7 +99,7 @@ select
 #formulario
 {
 	margin: auto;
-	width: 30%;
+	width: 40%;
 }
 
 #mensaIni, #mensaReg
@@ -132,6 +133,16 @@ select
 #selHorario
 {
 	display: none;
+}
+
+#titItem
+{
+	width: 100%;
+	background-color: rgba(122, 122, 122, 0.7);
+	height: 60px;
+	font-size: 1.5em;
+	text-align: center;
+	margin: auto;
 }
 
 /*clases*/

@@ -1,56 +1,137 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>EG - PreInscripcion</title>
+	<title>Evaluación de Curso - EdusoftGlobal</title>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="js/prefixfree.js"></script>
-	<script src="js/modernizr.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/miEstilo.css">
 	<link href='http://fonts.googleapis.com/css?family=Josefin+Sans:100' rel='stylesheet' type='text/css'>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src="js/modernizr.js"></script>
 	<script src="js/validCampoFranz.js"></script>
 	<script src="js/codigo.js"></script>
 </head>
 <body>
 	<header>
-		<h1>Inscripción</h1>
-		<h2>Cursos Catastro 2013</h2>
+		<h1>Evaluación de cursos</h1>
+		<h2>Catastro 2013</h2>
 	</header>
 		
 	<section id="formulario">
-		<form method="post" action="php/reg_precursos_cat.php" id="form" >
-			<label>Documento (Sin espacios ni puntos)</label>
-			<input type="text" id="txtDocumento" name="txtDocumento" placeholder="Documento" >
-			<label>Nombre Completo</label>
-			<input type="text" id="txtNombre" name="txtNombre" placeholder="Nombre completo" >
-			<label>Correo Electronico</label>
-			<input type="email" id="txtCorreo" name="txtCorreo" placeholder="usuario@correo.com" >
-			<label>Grupo de Trabajo</label>
-			<input type="text" id="txtGrupo" name="txtGrupo" placeholder="Grupo" >
-			<label>Convenio <div id="totConvenio"></div> </label>
-			<select id="cbConvenio" name="cbConvenio">
-				<option value="ninguno">Seleccione Opción</option>
-				<option value="conservacion">Conservación</option>
-				<option value="depuracion">Depuración</option>
-			</select>
-			<div id="ch-cursos">
-				Puedes seleccionar uno o los dos cursos.
-				<span>SAP</span>
-				<input name="ckSAP" type="checkbox" value="1" id="ckSAP"/>
-				<span>Excel</span>
-				<input name="ckExcel" type="checkbox" value="2" id="ckExcel"/>
-			</div>
-			<div id="selHorario">
-				<label>Horario <div id="totHorario"></div> </label>
-				<select id="cbHorario" name="cbHorario">
-					<option value="ninguno">Seleccione Opción</option>
-					<option value="vie4-7">Viernes 4-7</option>
-					<option value="sab8-11">Sabado 8-11</option>
-					<option value="sab11-2">Sabado 11-2</option>
-				</select>
-			</div>
+		<form method="post" action="php/reg_evacursos_cat.php" id="form" >
+			<h2>Por favor califique cada item de uno (1) a cinco (5), donde uno es la puntuación mas baja y cinco la mayor.</h2>
+			<br>
+			<div id="titItem">SOBRE EL TUTOR<hr size="6" color="white"></div>
+
+			<br>
+			<table>
+				<tr>
+					<td>
+						<label>Conocimiento y dominio del tema</label>
+					</td>
+					<td>
+						<select id="conoc" name="conoc">
+							<option value="5">5</option>
+							<option value="4">4</option>
+							<option value="3">3</option>
+							<option value="2">2</option>
+							<option value="1">1</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>Metodología</label>
+					</td>
+					<td>
+						<select id="metod" name="metod">
+							<option value="5">5</option>
+							<option value="4">4</option>
+							<option value="3">3</option>
+							<option value="2">2</option>
+							<option value="1">1</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>Empatía con el grupo</label>
+					</td>
+					<td>
+						<select id="empatia" name="empatia">
+							<option value="5">5</option>
+							<option value="4">4</option>
+							<option value="3">3</option>
+							<option value="2">2</option>
+							<option value="1">1</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>Manejo de los Recursos disponibles</label>
+					</td>
+					<td>
+						<select id="manejo_rec" name="manejo_rec">
+							<option value="5">5</option>
+							<option value="4">4</option>
+							<option value="3">3</option>
+							<option value="2">2</option>
+							<option value="1">1</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>Puntualidad</label>
+					</td>
+					<td>
+						<select id="puntualidad" name="puntualidad">
+							<option value="5">5</option>
+							<option value="4">4</option>
+							<option value="3">3</option>
+							<option value="2">2</option>
+							<option value="1">1</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>Claridad y acertividad en las respuestas</label>
+					</td>
+					<td>
+						<select id="puntualidad" name="puntualidad">
+							<option value="5">5</option>
+							<option value="4">4</option>
+							<option value="3">3</option>
+							<option value="2">2</option>
+							<option value="1">1</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">...</td>
+				</tr>
+				<tr>
+					<td colspan="2"><div id="titItem">SOBRE EL CURSO<hr size="6" color="white"></div></td>
+				</tr>
+				<br>
+				<tr>
+					<td>
+						<label>Contenidos</label>
+					</td>
+					<td>
+						<select id="conten" name="conten">
+							<option value="5">5</option>
+							<option value="4">4</option>
+							<option value="3">3</option>
+							<option value="2">2</option>
+							<option value="1">1</option>
+						</select>
+					</td>
+				</tr>
+
+			</table>		
+
 			<br><br>
 			<div id="boton"><input type="button" value="Registrar" id="btnRegistrar" ></div>
 		</form>
